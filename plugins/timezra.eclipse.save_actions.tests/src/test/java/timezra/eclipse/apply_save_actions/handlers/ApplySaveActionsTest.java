@@ -1,4 +1,4 @@
-package timezra.eclipse.save_actions.handlers;
+package timezra.eclipse.apply_save_actions.handlers;
 
 import static java.util.Arrays.asList;
 
@@ -25,11 +25,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import timezra.eclipse.save_actions.tests.PlatformTestFixture;
+import timezra.eclipse.apply_save_actions.handlers.ApplySaveActions;
+import timezra.eclipse.apply_save_actions.tests.PlatformTestFixture;
 
 public class ApplySaveActionsTest {
 
-	private static final String WORKSPACE = "../../plugins/timezra.eclipse.save_actions.test/workspace";
+	private static final String WORKSPACE = "../../plugins/timezra.eclipse.apply_save_actions.test/workspace";
 	private PlatformTestFixture testFixture;
 
 	@Before

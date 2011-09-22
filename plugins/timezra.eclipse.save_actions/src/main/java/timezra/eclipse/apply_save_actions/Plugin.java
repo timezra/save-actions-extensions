@@ -1,4 +1,4 @@
-package timezra.eclipse.save_actions;
+package timezra.eclipse.apply_save_actions;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -7,18 +7,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class SaveActionsPlugin extends AbstractUIPlugin {
+public class Plugin extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "timezra.eclipse.save_actions";
+	public static final String PLUGIN_ID = "timezra.eclipse.apply_save_actions";
 
 	// The shared instance
-	private static SaveActionsPlugin plugin;
+	private static Plugin plugin;
 
 	/**
 	 * The constructor
 	 */
-	public SaveActionsPlugin() {
+	public Plugin() {
 	}
 
 	/*
@@ -48,7 +48,7 @@ public class SaveActionsPlugin extends AbstractUIPlugin {
 	 * 
 	 * @return the shared instance
 	 */
-	public static SaveActionsPlugin getDefault() {
+	public static Plugin getDefault() {
 		return plugin;
 	}
 

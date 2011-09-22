@@ -6,25 +6,25 @@
          point="org.eclipse.ui.commands">
       <category
             name="Timezra&apos;s Commands"
-            id="timezra.eclipse.save_actions.commands.timezras_commands">
+            id="timezra.eclipse.apply_save_actions.commands.timezras_commands">
       </category>
       <command
             name="Apply Save Actions"
-            categoryId="timezra.eclipse.save_actions.commands.timezras_commands"
-            id="timezra.eclipse.save_actions.commands.applySaveActions">
+            categoryId="timezra.eclipse.apply_save_actions.commands.timezras_commands"
+            id="timezra.eclipse.apply_save_actions.commands.applySaveActions">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            commandId="timezra.eclipse.save_actions.commands.applySaveActions"
-            class="timezra.eclipse.save_actions.handlers.ApplySaveActions">
+            commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
+            class="timezra.eclipse.apply_save_actions.handlers.ApplySaveActions">
       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
       <key
-            commandId="timezra.eclipse.save_actions.commands.applySaveActions"
+            commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
             contextId="org.eclipse.ui.contexts.window"
             sequence="M3+M2+T,S"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
@@ -35,9 +35,9 @@
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <command
-               commandId="timezra.eclipse.save_actions.commands.applySaveActions"
+               commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
                icon="icons/full/obj16/sample.gif"
-               id="timezra.eclipse.save_actions.menus.applySaveActions"
+               id="timezra.eclipse.apply_save_actions.menus.applySaveActions"
                label="Apply Save Actions"
                mnemonic="S"
                style="push"

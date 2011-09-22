@@ -1,4 +1,4 @@
-package timezra.eclipse.save_actions.tests;
+package timezra.eclipse.apply_save_actions.tests;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -75,7 +75,7 @@ public class PlatformTestFixture {
 	}
 
 	private void registerTheService(final String name, final Object service) {
-		toUnregister.add(theContext.registerService(name, service, new Hashtable<Object, Object>()).getReference());
+		toUnregister.add(theContext.registerService(name, service, new Hashtable<String, Object>()).getReference());
 	}
 
 	public void dispose() {

@@ -1,4 +1,4 @@
-package timezra.eclipse.save_actions.tests;
+package timezra.eclipse.apply_save_actions.tests;
 
 import java.util.Collections;
 
@@ -10,7 +10,7 @@ import org.osgi.framework.launch.Framework;
 public class FakeOSGi {
 
 	public static Bundle start() {
-		final Framework framework = new EquinoxFactory().newFramework(Collections.emptyMap());
+		final Framework framework = new EquinoxFactory().newFramework(Collections.<String, String>emptyMap());
 		try {
 			framework.init();
 			return framework;
