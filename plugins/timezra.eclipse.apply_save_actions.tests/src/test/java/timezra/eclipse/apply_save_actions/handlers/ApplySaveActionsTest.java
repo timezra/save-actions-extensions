@@ -25,12 +25,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import timezra.eclipse.apply_save_actions.handlers.ApplySaveActions;
 import timezra.eclipse.apply_save_actions.tests.PlatformTestFixture;
 
 public class ApplySaveActionsTest {
 
-	private static final String WORKSPACE = "../../plugins/timezra.eclipse.apply_save_actions.test/workspace";
+	private static final String WORKSPACE = "../../plugins/timezra.eclipse.apply_save_actions.test/target/workspace";
 	private PlatformTestFixture testFixture;
 
 	@Before
@@ -58,7 +57,6 @@ public class ApplySaveActionsTest {
 		command.execute(event);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static final class SimpleAdapterManager implements IAdapterManager {
 
 		private final Map<IAdapterFactory, Collection<Class>> factories2adaptables;
