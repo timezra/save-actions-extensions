@@ -5,12 +5,12 @@
    <extension
          point="org.eclipse.ui.commands">
       <category
-            name="Timezra&apos;s Commands"
-            id="timezra.eclipse.apply_save_actions.commands.timezras_commands">
+            id="timezra.eclipse.apply_save_actions.commands.category"
+            name="%commandCategoryName">
       </category>
       <command
-            name="Apply Save Actions"
-            categoryId="timezra.eclipse.apply_save_actions.commands.timezras_commands"
+            name="%applySaveActionsLabel"
+            categoryId="timezra.eclipse.apply_save_actions.commands.category"
             id="timezra.eclipse.apply_save_actions.commands.applySaveActions">
       </command>
    </extension>
@@ -26,7 +26,7 @@
       <key
             commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
             contextId="org.eclipse.ui.contexts.window"
-            sequence="M3+M2+T,S"
+            sequence="M2+M3+T,S"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
    </extension>
@@ -38,10 +38,10 @@
                commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
                icon="icons/full/obj16/sample.gif"
                id="timezra.eclipse.apply_save_actions.menus.applySaveActions"
-               label="Apply Save Actions"
+               label="%applySaveActionsLabel"
                mnemonic="S"
                style="push"
-               tooltip="Apply Save Actions">
+               tooltip="%applySaveActionsTooltip">
             <visibleWhen
                   checkEnabled="false">
                <with
