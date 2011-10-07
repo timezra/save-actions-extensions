@@ -1,7 +1,7 @@
 This project contains plugins and features for an Eclipse menu contribution to apply Save Actions to a group of Java files.
 
 # generate poms
-  mvn org.eclipse.tycho:tycho-pomgenerator-plugin:generate-poms -DgroupId=timezra
+  mvn org.eclipse.tycho:tycho-pomgenerator-plugin:generate-poms -DgroupId=timezra.eclipse
 
 # add target-platform-configuration maven plugin to parent pom.xml
 	<plugin>
