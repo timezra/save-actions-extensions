@@ -1,2 +1,24 @@
 This project contains plugins and features for an Eclipse menu contribution to apply Save Actions to a group of Java files.
 
+# generate poms
+  mvn org.eclipse.tycho:tycho-pomgenerator-plugin:generate-poms -DgroupId=timezra.eclipse
+
+# add target-platform-configuration maven plugin to parent pom.xml
+	<plugin>
+		<groupId>org.eclipse.tycho</groupId>
+		<artifactId>target-platform-configuration</artifactId>
+		<version>0.13.0</version>
+		<configuration>
+			<resolver>p2</resolver>
+		</configuration>
+	</plugin>
+
+# add indigo p2 repository to parent pom.xml
+	<repository>
+		<id>indigo</id>
+		<layout>p2</layout>
+		<url>http://download.eclipse.org/releases/indigo/</url>
+	</repository>
+
+
+
