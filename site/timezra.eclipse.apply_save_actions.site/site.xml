@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.qualifier"/>
+</site>
