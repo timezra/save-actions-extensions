@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>plugins</artifactId>
     <groupId>timezra.eclipse</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>apply-save-actions-plugins-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <groupId>timezra.eclipse</groupId>
   <artifactId>timezra.eclipse.apply_save_actions</artifactId>
