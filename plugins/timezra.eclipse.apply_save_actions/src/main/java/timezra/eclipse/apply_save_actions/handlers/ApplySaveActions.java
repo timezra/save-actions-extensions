@@ -24,6 +24,7 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
@@ -48,14 +49,18 @@ public class ApplySaveActions extends AbstractHandler {
 		this.workbench = workbench;
 	}
 
+	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
-		final IStructuredSelection selections = (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
-		try {
-			applyTo(selections);
-		} catch (final JavaModelException e) {
-			throw new ExecutionException("Unexpected error while applying save actions.", e);
-		} catch (final InvocationTargetException e) {
-			throw new ExecutionException("Unexpected error while applying save actions.", e);
+		final ISelection currentSelection = HandlerUtil.getCurrentSelectionChecked(event);
+		if (currentSelection instanceof IStructuredSelection) {
+			final IStructuredSelection selections = (IStructuredSelection) currentSelection;
+			try {
+				applyTo(selections);
+			} catch (final JavaModelException e) {
+				throw new ExecutionException("Unexpected error while applying save actions.", e);
+			} catch (final InvocationTargetException e) {
+				throw new ExecutionException("Unexpected error while applying save actions.", e);
+			}
 		}
 		return null;
 	}
@@ -93,7 +98,8 @@ public class ApplySaveActions extends AbstractHandler {
 		applyTo(fragments);
 	}
 
-	private void applyTo(final IPackageFragment... packageFragments) throws JavaModelException, InvocationTargetException {
+	private void applyTo(final IPackageFragment... packageFragments) throws JavaModelException,
+			InvocationTargetException {
 		final Collection<ICompilationUnit> compilationUnits = new ArrayList<ICompilationUnit>();
 		for (final IPackageFragment f : packageFragments) {
 			compilationUnits.addAll(asList(f.getCompilationUnits()));

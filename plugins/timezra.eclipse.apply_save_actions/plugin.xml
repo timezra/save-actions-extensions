@@ -4,13 +4,9 @@
 
    <extension
          point="org.eclipse.ui.commands">
-      <category
-            id="timezra.eclipse.apply_save_actions.commands.category"
-            name="%commandCategoryName">
-      </category>
       <command
             name="%applySaveActionsLabel"
-            categoryId="timezra.eclipse.apply_save_actions.commands.category"
+            categoryId="org.eclipse.jdt.ui.category.source"
             id="timezra.eclipse.apply_save_actions.commands.applySaveActions">
       </command>
    </extension>
@@ -26,14 +22,14 @@
       <key
             commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
             contextId="org.eclipse.ui.contexts.window"
-            sequence="M2+M3+T,S"
+            sequence="M1+M3+T S"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            locationURI="popup:org.eclipse.jdt.ui.source.menu?after=importGroup">
          <command
                commandId="timezra.eclipse.apply_save_actions.commands.applySaveActions"
                icon="icons/full/obj16/save_actions.gif"
@@ -48,6 +44,10 @@
                      variable="selection">
                   <iterate
                         operator="and">
+                     <test
+                           forcePluginActivation="true"
+                           property="timezra.eclipse.apply_save_actions.areSaveActionsEnabled">
+                     </test>
                      <or>
                         <adapt
                               type="org.eclipse.jdt.core.IJavaProject">
@@ -69,6 +69,16 @@
             </visibleWhen>
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="timezra.eclipse.apply_save_actions.propertyTesters.AreSaveActionsEnabled"
+            id="timezra.eclipse.apply_save_actions.areSaveActionsEnabled"
+            namespace="timezra.eclipse.apply_save_actions"
+            properties="areSaveActionsEnabled"
+            type="java.lang.Object">
+      </propertyTester>
    </extension>
 
 </plugin>

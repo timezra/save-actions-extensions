@@ -1,6 +1,7 @@
 package timezra.eclipse.apply_save_actions.handlers;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -34,11 +35,18 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jdt.ui.cleanup.CleanUpOptions;
+import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.ISources;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.MethodRule;
+
+import timezra.eclipse.apply_save_actions.Constants;
+import timezra.eclipse.apply_save_actions.tests.ModifiesSaveActionsPreferences;
+import timezra.eclipse.apply_save_actions.tests.ModifiesSaveActionsPreferencesRule;
 
 public class ApplySaveActionsPluginTest {
 
@@ -60,6 +68,9 @@ public class ApplySaveActionsPluginTest {
 			"	}\r\n" + //
 			"}";
 
+	@Rule
+	public final MethodRule rule = new ModifiesSaveActionsPreferencesRule();
+
 	private IProject aJavaProject;
 	private IFolder aJavaPackage;
 	private IFile aJavaFile;
@@ -68,7 +79,6 @@ public class ApplySaveActionsPluginTest {
 
 	@Before
 	public void setUp() throws CoreException {
-		enableJavaSaveActions();
 		aJavaProject = createAJavaProject("a_java_project");
 		aJavaSourceFolder = createASourceFolder(SOURCE_FOLDER);
 		aJavaPackage = createAPackage(aJavaSourceFolder, "timezra/eclipse/apply_save_actions");
@@ -81,28 +91,51 @@ public class ApplySaveActionsPluginTest {
 	}
 
 	@Test
+	public void theCurrentSelectionMustBeStructured() throws ExecutionException {
+		enableJavaSaveActions();
+
+		final ApplySaveActions command = new ApplySaveActions();
+		final EvaluationContext context = new EvaluationContext(null, new Object());
+		context.addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME, new TextSelection(0, 100));
+		final ExecutionEvent event = new ExecutionEvent(null, Collections.emptyMap(), null, context);
+		assertNull(command.execute(event));
+	}
+
+	@Test
+	@ModifiesSaveActionsPreferences
 	public void aJavaFileCanBeReformatted() throws ExecutionException, CoreException, IOException {
+		enableJavaSaveActions();
+
 		applySaveActions(JavaCore.create(aJavaFile));
 
 		verifyThatSaveActionsHaveBeenApplied(aJavaFile);
 	}
 
 	@Test
+	@ModifiesSaveActionsPreferences
 	public void aJavaPackageCanBeReformatted() throws ExecutionException, CoreException, IOException {
+		enableJavaSaveActions();
+
 		applySaveActions(JavaCore.create(aJavaPackage));
 
 		verifyThatSaveActionsHaveBeenApplied(aJavaFile);
 	}
 
 	@Test
+	@ModifiesSaveActionsPreferences
 	public void aJavaSourceFolderCanBeReformatted() throws ExecutionException, CoreException, IOException {
+		enableJavaSaveActions();
+
 		applySaveActions(JavaCore.create(aJavaSourceFolder));
 
 		verifyThatSaveActionsHaveBeenApplied(aJavaFile);
 	}
 
 	@Test
+	@ModifiesSaveActionsPreferences
 	public void aJavaProjectCanBeReformatted() throws ExecutionException, CoreException, IOException {
+		enableJavaSaveActions();
+
 		applySaveActions(JavaCore.create(aJavaProject));
 
 		verifyThatSaveActionsHaveBeenApplied(aJavaFile);
@@ -131,9 +164,7 @@ public class ApplySaveActionsPluginTest {
 
 	@SuppressWarnings("restriction")
 	private void enableJavaSaveActions() {
-		InstanceScope.INSTANCE.getNode(JavaUI.ID_PLUGIN).putBoolean(
-				"editor_save_participant_"
-						+ org.eclipse.jdt.internal.corext.fix.CleanUpPostSaveListener.POSTSAVELISTENER_ID, true);
+		InstanceScope.INSTANCE.getNode(JavaUI.ID_PLUGIN).putBoolean(Constants.PERFORM_SAVE_ACTIONS_PREFERENCE, true);
 
 		final Map<String, String> cleanupPreferences = new HashMap<String, String>(
 				org.eclipse.jdt.internal.ui.JavaPlugin
