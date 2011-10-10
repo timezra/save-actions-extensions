@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -52,21 +51,24 @@ public class ApplySaveActionsPluginTest {
 
 	private static final String SOURCE_FOLDER = "src/test/java";
 
+	private static final String EOL = System.getProperty("line.separator");
+
 	private static final IProgressMonitor NULL_PROGRESS_MONITOR = new NullProgressMonitor();
 
-	private static final String TEST_CLASS_BEFORE_SAVE_ACTIONS = "package timezra.eclipse.apply_save_actions;import java.util.*;class TestClass{private List<TestClass> testClasses;TestClass(List<TestClass> testClasses){this.testClasses=testClasses;}}";
+	private static final String TEST_CLASS_BEFORE_SAVE_ACTIONS = "package timezra.eclipse.apply_save_actions;import java.util.*;class TestClass{private List<TestClass> testClasses;TestClass(List<TestClass> testClasses){this.testClasses=testClasses;}}"
+			+ EOL;
 
-	private static final String TEST_CLASS_AFTER_SAVE_ACTIONS = "package timezra.eclipse.apply_save_actions;\r\n" + //
-			"\r\n" + //
-			"import java.util.List;\r\n" + //
-			"\r\n" + //
-			"class TestClass {\r\n" + //
-			"	private final List<TestClass> testClasses;\r\n" + //
-			"\r\n" + //
-			"	TestClass(List<TestClass> testClasses) {\r\n" + //
-			"		this.testClasses = testClasses;\r\n" + //
-			"	}\r\n" + //
-			"}";
+	private static final String TEST_CLASS_AFTER_SAVE_ACTIONS = "package timezra.eclipse.apply_save_actions;" + EOL + //
+			EOL + //
+			"import java.util.List;" + EOL + //
+			EOL + //
+			"class TestClass {" + EOL + //
+			"	private final List<TestClass> testClasses;" + EOL + //
+			EOL + //
+			"	TestClass(List<TestClass> testClasses) {" + EOL + //
+			"		this.testClasses = testClasses;" + EOL + //
+			"	}" + EOL + //
+			"}" + EOL;
 
 	@Rule
 	public final MethodRule rule = new ModifiesSaveActionsPreferencesRule();
@@ -92,8 +94,6 @@ public class ApplySaveActionsPluginTest {
 
 	@Test
 	public void theCurrentSelectionMustBeStructured() throws ExecutionException {
-		enableJavaSaveActions();
-
 		final ApplySaveActions command = new ApplySaveActions();
 		final EvaluationContext context = new EvaluationContext(null, new Object());
 		context.addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME, new TextSelection(0, 100));
@@ -133,7 +133,7 @@ public class ApplySaveActionsPluginTest {
 
 	@Test
 	@ModifiesSaveActionsPreferences
-	public void aJavaProjectCanBeReformatted() throws ExecutionException, CoreException, IOException {
+	public void aJavaProjectCanBeReformatted() throws ExecutionException, CoreException {
 		enableJavaSaveActions();
 
 		applySaveActions(JavaCore.create(aJavaProject));
@@ -151,13 +151,13 @@ public class ApplySaveActionsPluginTest {
 
 	// contains a beaut that turns a stream into a String without using IoUtils:
 	// http://stackoverflow.com/questions/309424/in-java-how-do-a-read-convert-an-inputstream-in-to-a-string
-	private void verifyThatSaveActionsHaveBeenApplied(final IFile aJavaFile) throws CoreException, IOException {
+	private void verifyThatSaveActionsHaveBeenApplied(final IFile aJavaFile) throws CoreException {
 		final String actualContents;
-		final InputStream stream = aJavaFile.getContents();
+		final Scanner scanner = new Scanner(aJavaFile.getContents());
 		try {
-			actualContents = new Scanner(stream).useDelimiter("\\A").next();
+			actualContents = scanner.useDelimiter("\\A").next();
 		} finally {
-			stream.close();
+			scanner.close();
 		}
 		assertEquals(TEST_CLASS_AFTER_SAVE_ACTIONS, actualContents);
 	}
@@ -173,6 +173,7 @@ public class ApplySaveActionsPluginTest {
 						.getDefaultOptions(
 								org.eclipse.jdt.internal.corext.fix.CleanUpConstants.DEFAULT_SAVE_ACTION_OPTIONS)
 						.getMap());
+
 		cleanupPreferences.put(org.eclipse.jdt.internal.corext.fix.CleanUpConstants.FORMAT_SOURCE_CODE,
 				CleanUpOptions.TRUE);
 		cleanupPreferences.put(org.eclipse.jdt.internal.corext.fix.CleanUpConstants.ORGANIZE_IMPORTS,

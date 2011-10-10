@@ -1,5 +1,12 @@
 This project contains plugins and features for an Eclipse menu contribution to apply Save Actions to a group of Java files.
 
+This project can be built from the root pom with standard Maven commands, e.g.,
+    $> mvn clean package integration-test
+
+When importing these projects into Eclipse, you should be able to import them as Existing Maven Projects (with the m2e plugin). This should create the appropriate .classpath and .project files.
+You may need to delete the timezra.eclipse.apply_save_actions.tests project from the workspace (but not from disk) and then re-import it as a General -> Existing Project after the .classpath and .project files have been created. This might have something to do with its being a fragment.
+
+
 # generate poms
   mvn org.eclipse.tycho:tycho-pomgenerator-plugin:generate-poms -DgroupId=timezra.eclipse
 
