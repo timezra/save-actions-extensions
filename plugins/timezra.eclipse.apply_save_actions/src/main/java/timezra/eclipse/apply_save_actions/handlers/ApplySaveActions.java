@@ -57,9 +57,9 @@ public class ApplySaveActions extends AbstractHandler {
 			try {
 				applyTo(selections);
 			} catch (final JavaModelException e) {
-				throw new ExecutionException("Unexpected error while applying save actions.", e);
+				throw new ExecutionException(Messages.APPLY_SAVE_ACTIONS_UNEXPECTED_ERROR, e);
 			} catch (final InvocationTargetException e) {
-				throw new ExecutionException("Unexpected error while applying save actions.", e);
+				throw new ExecutionException(Messages.APPLY_SAVE_ACTIONS_UNEXPECTED_ERROR, e.getTargetException());
 			}
 		}
 		return null;
@@ -135,7 +135,7 @@ public class ApplySaveActions extends AbstractHandler {
 
 		@Override
 		public void execute(final IProgressMonitor pm) throws CoreException {
-			pm.beginTask("Applying Save Actions", compilationUnits.length);
+			pm.beginTask(Messages.APPLY_SAVE_ACTIONS_BEGIN_TASK, compilationUnits.length);
 			try {
 				for (final ICompilationUnit unit : compilationUnits) {
 					applyTo(workspace.getRoot().getFile(unit.getPath()), pm);
