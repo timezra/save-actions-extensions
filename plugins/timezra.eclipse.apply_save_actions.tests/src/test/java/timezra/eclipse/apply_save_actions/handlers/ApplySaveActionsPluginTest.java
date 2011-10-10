@@ -55,20 +55,24 @@ public class ApplySaveActionsPluginTest {
 
 	private static final IProgressMonitor NULL_PROGRESS_MONITOR = new NullProgressMonitor();
 
-	private static final String TEST_CLASS_BEFORE_SAVE_ACTIONS = "package timezra.eclipse.apply_save_actions;import java.util.*;class TestClass{private List<TestClass> testClasses;TestClass(List<TestClass> testClasses){this.testClasses=testClasses;}}"
-			+ EOL;
+	private static final String TEST_CLASS = "TestClass";
+	private static final String TEST_PACKAGE = "timezra.eclipse.apply_save_actions";
 
-	private static final String TEST_CLASS_AFTER_SAVE_ACTIONS = "package timezra.eclipse.apply_save_actions;" + EOL + //
+	private static final String TEST_CLASS_BEFORE_SAVE_ACTIONS = "package " + TEST_PACKAGE
+			+ ";import java.util.*;class " + TEST_CLASS + "{private List<" + TEST_CLASS + "> l;" + TEST_CLASS
+			+ "(List<" + TEST_CLASS + "> l){this.l=l;}}";
+
+	private static final String TEST_CLASS_AFTER_SAVE_ACTIONS = "package " + TEST_PACKAGE + ";" + EOL + //
 			EOL + //
 			"import java.util.List;" + EOL + //
 			EOL + //
-			"class TestClass {" + EOL + //
-			"	private final List<TestClass> testClasses;" + EOL + //
+			"class " + TEST_CLASS + " {" + EOL + //
+			"	private final List<" + TEST_CLASS + "> l;" + EOL + //
 			EOL + //
-			"	TestClass(List<TestClass> testClasses) {" + EOL + //
-			"		this.testClasses = testClasses;" + EOL + //
+			"	" + TEST_CLASS + "(List<" + TEST_CLASS + "> l) {" + EOL + //
+			"		this.l = l;" + EOL + //
 			"	}" + EOL + //
-			"}" + EOL;
+			"}";
 
 	@Rule
 	public final MethodRule rule = new ModifiesSaveActionsPreferencesRule();
@@ -83,8 +87,8 @@ public class ApplySaveActionsPluginTest {
 	public void setUp() throws CoreException {
 		aJavaProject = createAJavaProject("a_java_project");
 		aJavaSourceFolder = createASourceFolder(SOURCE_FOLDER);
-		aJavaPackage = createAPackage(aJavaSourceFolder, "timezra/eclipse/apply_save_actions");
-		aJavaFile = createAJavaFile(aJavaPackage, "TestClass.java");
+		aJavaPackage = createAPackage(aJavaSourceFolder, TEST_PACKAGE.replaceAll("\\.", "/"));
+		aJavaFile = createAJavaFile(aJavaPackage, TEST_CLASS + ".java");
 	}
 
 	@After
