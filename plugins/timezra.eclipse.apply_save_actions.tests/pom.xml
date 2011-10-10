@@ -13,7 +13,8 @@
     <packaging>eclipse-test-plugin</packaging>
 	<!-- Tell tycho to run PDE tests http://git.eclipse.org/c/tycho/org.eclipse.tycho.git/tree/tycho-demo/itp01/tycho.demo.itp01.tests/pom.xml -->
     <build>
-        <plugins>
+        <outputDirectory>target/test-classes</outputDirectory>
+	<plugins>
             <plugin>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-surefire-plugin</artifactId>
