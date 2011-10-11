@@ -14,7 +14,7 @@
 	<!-- Tell tycho to run PDE tests http://git.eclipse.org/c/tycho/org.eclipse.tycho.git/tree/tycho-demo/itp01/tycho.demo.itp01.tests/pom.xml -->
     <build>
         <outputDirectory>target/test-classes</outputDirectory>
-	<plugins>
+        <plugins>
             <plugin>
                 <groupId>org.eclipse.tycho</groupId>
                 <artifactId>tycho-surefire-plugin</artifactId>
@@ -43,6 +43,12 @@
                             <version>${tycho-version}</version>
                             <configuration>
                                 <argLine>-XstartOnFirstThread</argLine>
+                                <dependencies>
+                                    <dependency>
+                                        <type>p2-installable-unit</type>
+                                        <artifactId>org.eclipse.jdt.launching.macosx</artifactId>
+                                    </dependency>
+                                </dependencies>
                             </configuration>
                         </plugin>
                     </plugins>
