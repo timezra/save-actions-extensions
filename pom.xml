@@ -12,7 +12,7 @@
   <modules>
     <module>plugins</module>
     <module>features</module>
-    <module>site</module>
+    <module>update-site</module>
   </modules>
   <build>
     <plugins>
