@@ -1,9 +1,11 @@
 This project contains plugins and features for an Eclipse menu contribution to apply Save Actions to a group of Java files.
 
+This project is based on information from the following tutorial: http://timezra.blogspot.com/2011/10/eclipse-plug-ins-program-to-publish.html
+
 This project can be built from the root pom with standard Maven commands, e.g.,
     $> mvn clean package integration-test
 
-If you would like to build an update site for this project using signed jars use the following commands (the first to generate a self-signed cert with a 1-year validity if you do not have a cert from a CA; the second to activate the maven profile to sign the jars that are packaged in the update site):
+If you would like to build an update site for this project with signed jars use the following commands (the first to generate a self-signed cert with a 1-year validity if you do not have a cert from a CA; the second to activate the maven profile to sign the jars that are packaged in the update site):
     $> keytool -genkey -alias _keystore_alias_ -keystore /path/to/keystore -validity 365
     $> mvn -Psign -Dkeystore=/path/to/keystore -Dstorepass=_keystore_password_ -Dalias=_keystore_alias_ clean package integration-test
 
@@ -12,29 +14,6 @@ You may need to delete the timezra.eclipse.apply_save_actions.tests project from
 
 Because of an m2e bug (https://issues.sonatype.org/browse/MNGECLIPSE-966), you may need to set the JRE for timezra.eclipse.apply_save_actions and timezra.eclipse.apply_save_actions.tests to 1.6.
 
-
-# generate poms
-  mvn org.eclipse.tycho:tycho-pomgenerator-plugin:generate-poms -DgroupId=timezra.eclipse
-
-# add target-platform-configuration maven plugin to parent pom.xml
-	<plugin>
-		<groupId>org.eclipse.tycho</groupId>
-		<artifactId>target-platform-configuration</artifactId>
-		<version>0.13.0</version>
-		<configuration>
-			<resolver>p2</resolver>
-		</configuration>
-	</plugin>
-
-# add indigo p2 repository to parent pom.xml
-	<repository>
-		<id>indigo</id>
-		<layout>p2</layout>
-		<url>http://download.eclipse.org/releases/indigo/</url>
-	</repository>
-
-
-# TODO
-  publish update site: http://pages.github.com/
-  publish to eclipse marketplace: http://marketplace.eclipse.org/quickstart
-
+This plug-in is available from the Eclipse Marketplace (search for "save actions").
+This plug-incan also be installed from the following update site: http://timezra.github.com/apply-save-actions/
+ 
