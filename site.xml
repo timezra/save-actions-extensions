@@ -3,7 +3,7 @@
    <description name="Apply Save Actions Update Site" url="http://timezra.github.com/apply-save-actions">
       Update Site for the Apply Save Actions Menu Contribution.
    </description>
-   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.201110111947.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.201110111947">
+   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.201110132329.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.201110132329">
       <category name="timezra_eclipse_plugins"/>
    </feature>
    <category-def name="timezra_eclipse_plugins" label="Timezra&apos;s Eclipse Contributions">
