@@ -7,18 +7,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Plugin extends AbstractUIPlugin {
+public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "timezra.eclipse.apply_save_actions";
 
 	// The shared instance
-	private static Plugin plugin;
+	private static Activator plugin;
 
 	/**
 	 * The constructor
 	 */
-	public Plugin() {
+	public Activator() {
 	}
 
 	/*
@@ -48,7 +48,7 @@ public class Plugin extends AbstractUIPlugin {
 	 * 
 	 * @return the shared instance
 	 */
-	public static Plugin getDefault() {
+	public static Activator getDefault() {
 		return plugin;
 	}
 

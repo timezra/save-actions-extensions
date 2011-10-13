@@ -2,13 +2,16 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
     xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>timezra.eclipse</groupId>
-        <artifactId>apply-save-actions-plugins-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
     <groupId>timezra.eclipse</groupId>
     <artifactId>timezra.eclipse.apply_save_actions</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>eclipse-plugin</packaging>
+	<name>timezra.eclipse.apply_save_actions</name>
+	<description>timezra.eclipse.apply_save_actions plug-in project</description>
+    
+    <parent>
+        <groupId>timezra.eclipse</groupId>
+        <artifactId>timezra.eclipse.apply_save_actions.plugins</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
 </project>
