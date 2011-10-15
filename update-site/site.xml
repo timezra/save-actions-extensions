@@ -6,6 +6,9 @@
    <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.qualifier">
       <category name="timezra_eclipse_plugins"/>
    </feature>
+   <feature url="features/timezra.eclipse.apply_save_actions.source.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.source.feature" version="1.0.0.qualifier">
+      <category name="timezra_eclipse_plugins"/>
+   </feature>
    <category-def name="timezra_eclipse_plugins" label="Timezra&apos;s Eclipse Contributions">
       <description>
          Timezra&apos;s Eclipse Contributions

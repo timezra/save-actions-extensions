@@ -7,7 +7,7 @@ This project can be built from the root pom with standard Maven commands, e.g.,
 
 If you would like to build an update site for this project with signed jars use the following commands (the first to generate a self-signed cert with a 1-year validity if you do not have a cert from a CA; the second to activate the maven profile to sign the jars that are packaged in the update site):
     $> keytool -genkey -alias _keystore_alias_ -keystore /path/to/keystore -validity 365
-    $> mvn -Psign -Dkeystore=/path/to/keystore -Dstorepass=_keystore_password_ -Dalias=_keystore_alias_ clean package integration-test
+    $> mvn -Psign -Djarsigner.keystore=/path/to/keystore -Djarsigner.storepass=_keystore_password_ -Djarsigner.alias=_keystore_alias_ clean package integration-test
 
 When importing these projects into Eclipse, you should be able to import them as Existing Maven Projects (with the m2e plugin). This should create the appropriate .classpath and .project files.
 You may need to delete the timezra.eclipse.apply_save_actions.tests project from the workspace (but not from disk) and then re-import it as a General -> Existing Project after the .classpath and .project files have been created. This might have something to do with its being a fragment.

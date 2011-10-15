@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>timezra.eclipse</groupId>
-    <artifactId>timezra.eclipse.apply_save_actions.tests</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>eclipse-test-plugin</packaging>
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>timezra.eclipse</groupId>
+	<artifactId>timezra.eclipse.apply_save_actions.tests</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>eclipse-test-plugin</packaging>
 	<name>timezra.eclipse.apply_save_actions.tests</name>
 	<description>Test project for the timezra.eclipse.apply_save_actions plug-in</description>
-    
-    <parent>
-        <groupId>timezra.eclipse</groupId>
-        <artifactId>timezra.eclipse.apply_save_actions.plugins</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
+
+	<parent>
+		<groupId>timezra.eclipse</groupId>
+		<artifactId>timezra.eclipse.apply_save_actions.plugins</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
     
 	<!-- Tell tycho to run PDE tests http://git.eclipse.org/c/tycho/org.eclipse.tycho.git/tree/tycho-demo/itp01/tycho.demo.itp01.tests/pom.xml -->
-    <build>
-        <outputDirectory>target/test-classes</outputDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-surefire-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <useUIHarness>true</useUIHarness>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    
-    <profiles>
-        <profile>
-            <id>osx</id>
-            <activation>
-                <property>
-                    <name>java.vendor.url</name>
-                    <value>http://www.apple.com/</value>
-                </property>
-            </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.eclipse.tycho</groupId>
-                            <artifactId>tycho-surefire-plugin</artifactId>
-                            <version>${tycho-version}</version>
-                            <configuration>
-                                <argLine>-XstartOnFirstThread</argLine>
-                                <dependencies>
-                                    <dependency>
-                                        <type>p2-installable-unit</type>
-                                        <artifactId>org.eclipse.jdt.launching.macosx</artifactId>
-                                    </dependency>
-                                </dependencies>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-    </profiles>
+	<build>
+		<outputDirectory>target/test-classes</outputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<useUIHarness>true</useUIHarness>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>osx</id>
+			<activation>
+				<property>
+					<name>java.vendor.url</name>
+					<value>http://www.apple.com/</value>
+				</property>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.tycho</groupId>
+							<artifactId>tycho-surefire-plugin</artifactId>
+							<version>${tycho-version}</version>
+							<configuration>
+								<argLine>-XstartOnFirstThread</argLine>
+								<dependencies>
+									<dependency>
+										<type>p2-installable-unit</type>
+										<artifactId>org.eclipse.jdt.launching.macosx</artifactId>
+									</dependency>
+								</dependencies>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
 </project>
