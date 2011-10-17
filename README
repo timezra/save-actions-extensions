@@ -1,4 +1,4 @@
-This project contains plugins and features for an Eclipse menu contribution to apply Save Actions to a group of Java files.
+This project contains plugins and features for extensions to the standard Eclipse Java Editor Save Actions, including a menu contribution to apply Save Actions to a group of Java/Groovy files.
 
 This project is based on information from the following tutorial: http://timezra.blogspot.com/2011/10/eclipse-plug-ins-program-to-publish.html
 
@@ -15,5 +15,5 @@ You may need to delete the timezra.eclipse.apply_save_actions.tests project from
 Because of an m2e bug (https://issues.sonatype.org/browse/MNGECLIPSE-966), you may need to set the JRE for timezra.eclipse.apply_save_actions and timezra.eclipse.apply_save_actions.tests to 1.6.
 
 This plug-in is available from the Eclipse Marketplace (search for "save actions").
-This plug-incan also be installed from the following update site: http://timezra.github.com/apply-save-actions/
+This plug-incan also be installed from the following update site: http://timezra.github.com/save-actions-extensions/
  
