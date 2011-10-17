@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="Apply Save Actions Update Site" url="http://timezra.github.com/apply-save-actions">
+   <description name="Save Actions Extensions Update Site" url="http://timezra.github.com/save-actions-extensions">
       Update Site for the Apply Save Actions Menu Contribution.
    </description>
-   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.201110150021.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.201110150021">
+   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.201110172244.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.201110172244">
       <category name="timezra_eclipse_plugins"/>
    </feature>
-   <feature url="features/timezra.eclipse.apply_save_actions.source.feature_1.0.0.201110150021.jar" id="timezra.eclipse.apply_save_actions.source.feature" version="1.0.0.201110150021">
+   <feature url="features/timezra.eclipse.apply_save_actions.source.feature_1.0.0.201110172244.jar" id="timezra.eclipse.apply_save_actions.source.feature" version="1.0.0.201110172244">
       <category name="timezra_eclipse_plugins"/>
    </feature>
    <category-def name="timezra_eclipse_plugins" label="Timezra&apos;s Eclipse Contributions">
