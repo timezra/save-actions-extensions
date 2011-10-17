@@ -18,8 +18,8 @@
    </license>
 
    <url>
-      <update label="%updateSiteName" url="http://timezra.github.com/apply-save-actions"/>
-      <discovery label="%updateSiteName" url="http://timezra.github.com/apply-save-actions"/>
+      <update label="%updateSiteName" url="http://timezra.github.com/save-actions-extensions"/>
+      <discovery label="%updateSiteName" url="http://timezra.github.com/save-actions-extensions"/>
    </url>
 
    <requires>

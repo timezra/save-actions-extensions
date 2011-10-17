@@ -3,15 +3,15 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>timezra.eclipse</groupId>
-	<artifactId>timezra.eclipse.apply_save_actions.update-site</artifactId>
+	<artifactId>timezra.eclipse.save_actions_extensions.update-site</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-update-site</packaging>
-	<name>timezra.eclipse.apply_save_actions.update-site</name>
+	<name>timezra.eclipse.save_actions_extensions.update-site</name>
 	<description>Update site project for the timezra.eclipse.apply_save_actions plug-in</description>
     
 	<parent>
 		<groupId>timezra.eclipse</groupId>
-		<artifactId>timezra.eclipse.apply_save_actions.parent</artifactId>
+		<artifactId>timezra.eclipse.save_actions_extensions</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
     

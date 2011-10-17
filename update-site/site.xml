@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="Apply Save Actions Update Site" url="http://timezra.github.com/apply-save-actions">
+   <description name="Save Actions Extensions Update Site" url="http://timezra.github.com/save-actions-extensions">
       Update Site for the Apply Save Actions Menu Contribution.
    </description>
    <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.qualifier">
