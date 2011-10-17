@@ -9,12 +9,6 @@
 	<name>timezra.eclipse.apply_save_actions.parent</name>
 	<description>Parent project for the timezra.eclipse.apply_save_actions project set</description>
 
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
-
 	<url>https://github.com/timezra/apply-save-actions</url>
 
 	<licenses>
@@ -57,7 +51,7 @@
 	<profiles>
 		<profile>
 			<id>sign</id>
-            <!-- To sign plug-ins and features, run: mvn -Psign -Dkeystore=<path> -Dstorepass=******* -Dalias=<keyalias> clean package integration-test -->
+            <!-- To sign plug-ins and features, run: mvn -Psign -Djarsigner.keystore=<path> -Djarsigner.storepass=******* -Djarsigner.alias=<keyalias> clean package integration-test -->
 			<build>
 				<pluginManagement>
 					<plugins>
