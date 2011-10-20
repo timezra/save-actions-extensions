@@ -3,7 +3,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>timezra.eclipse</groupId>
-	<artifactId>timezra.eclipse.apply_save_actions.features</artifactId>
+	<artifactId>timezra.eclipse.save_actions_extensions.features</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>timezra.eclipse.apply_save_actions.features</name>
@@ -18,6 +18,8 @@
 	<modules>
 		<module>timezra.eclipse.apply_save_actions.feature</module>
 		<module>timezra.eclipse.apply_save_actions.source.feature</module>
+		<module>timezra.eclipse.port_save_actions.feature</module>
+		<module>timezra.eclipse.port_save_actions.source.feature</module>
 	</modules>
     
 	<profiles>

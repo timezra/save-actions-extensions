@@ -11,7 +11,7 @@
     
     <parent>
         <groupId>timezra.eclipse</groupId>
-        <artifactId>timezra.eclipse.apply_save_actions.features</artifactId>
+        <artifactId>timezra.eclipse.save_actions_extensions.features</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 </project>

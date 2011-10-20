@@ -3,11 +3,11 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>timezra.eclipse</groupId>
-	<artifactId>timezra.eclipse.apply_save_actions</artifactId>
+	<artifactId>timezra.eclipse.port_save_actions</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
-	<name>timezra.eclipse.apply_save_actions</name>
-	<description>timezra.eclipse.apply_save_actions plug-in project</description>
+	<name>timezra.eclipse.port_save_actions</name>
+	<description>timezra.eclipse.port_save_actions plug-in project</description>
 
 	<parent>
 		<groupId>timezra.eclipse</groupId>

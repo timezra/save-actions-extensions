@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <description name="Save Actions Extensions Update Site" url="http://timezra.github.com/save-actions-extensions">
-      Update Site for the Apply Save Actions Menu Contribution.
+      Update Site for Java Editor Save Actions Extensions.
    </description>
-   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.qualifier">
-      <category name="timezra_eclipse_plugins"/>
-   </feature>
-   <feature url="features/timezra.eclipse.apply_save_actions.source.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.source.feature" version="1.0.0.qualifier">
-      <category name="timezra_eclipse_plugins"/>
-   </feature>
    <category-def name="timezra_eclipse_plugins" label="Timezra&apos;s Eclipse Contributions">
       <description>
          Timezra&apos;s Eclipse Contributions
       </description>
    </category-def>
+   <category-def name="timezra_eclipse_plugins_sdk" label="Timezra&apos;s Eclipse Contributions SDKs">
+      <description>
+         Source For Timezra&apos;s Eclipse Contributions
+      </description>
+   </category-def>
+   <feature url="features/timezra.eclipse.apply_save_actions.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.feature" version="1.0.0.qualifier">
+      <category name="timezra_eclipse_plugins"/>
+   </feature>
+   <feature url="features/timezra.eclipse.apply_save_actions.source.feature_1.0.0.qualifier.jar" id="timezra.eclipse.apply_save_actions.source.feature" version="1.0.0.qualifier">
+      <category name="timezra_eclipse_plugins_sdk"/>
+   </feature>
+   <feature url="features/timezra.eclipse.port_save_actions.feature_1.0.0.qualifier.jar" id="timezra.eclipse.port_save_actions.feature" version="1.0.0.qualifier">
+      <category name="timezra_eclipse_plugins"/>
+   </feature>
+   <feature url="features/timezra.eclipse.port_save_actions.source.feature_1.0.0.qualifier.jar" id="timezra.eclipse.port_save_actions.source.feature" version="1.0.0.qualifier">
+      <category name="timezra_eclipse_plugins_sdk"/>
+   </feature>
 </site>
